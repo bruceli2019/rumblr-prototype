@@ -11,6 +11,18 @@
   <div class = "col-md-4">
     <!--photos go here-->
     
+    <!--going to run through all the photos and display them-->
+    <!--this needs to slightly change -- don't need the .nil in final product b/c profile only shows upon login-->
+    <!--this is like this because want to work without login right now-->
+    <% if current_user.nil? %>
+      <img src = "<%= @all_photos.image %>" class = "rounded">
+    <% else %>
+      <% @all_photos.each do |photo| %>
+        <img src = <%= photo.image %>> class = "rounded">
+      <% end %>
+    <% end %>
+
+    
   </div>
   
   <div class = "col-md-8">
